@@ -11,7 +11,7 @@ namespace Conbunnipelago;
 
 public class Core : MelonMod
 {
-    public const string VersionNumber = "0.1.0";
+    public const string VersionNumber = "0.1.1";
     public static MelonLogger.Instance Log;
     public static List<GameObject> Trampolines = [];
     public const string DataFolder = "Mods/SW_CreeperKing.Conbunnipelago/Data";
@@ -77,6 +77,9 @@ public class Core : MelonMod
                 GameObject.Find(
                     "Subzonas/PX Subzona/Subzona Concierto Cardbun/ConciertoCardbun Prompts/DetallesGrandes/MesaDJ"
                 ).AddComponent<Hiderinator>().Condition = () => BnuyClient.Cds >= BnuyClient.CdsToGoal;
+
+                GameObject.Find("NPCs/Concierto Cardbun NPCs/MesaDJ").AddComponent<Hiderinator>().Condition
+                    = () => BnuyClient.Cds >= BnuyClient.CdsToGoal;
 
                 foreach (var doorData in BnuyClient.LocationDoors)
                 {
